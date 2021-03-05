@@ -62,4 +62,5 @@ def run():
     clear()
     print(ipAddresses)
 
+# run the run function
 run()
