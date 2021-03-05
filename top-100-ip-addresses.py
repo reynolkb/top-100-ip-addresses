@@ -1,4 +1,5 @@
 from collections import defaultdict
+import random
 
 # Create a default dictionary sortable by value, all the values are integers
 # Default dictionary allows you to add a new key/value pair only if the key doesn't already exists
@@ -28,3 +29,23 @@ def clear():
     Clear out the dictionary at the start of each day
     '''
     ipAddresses.clear()
+
+def run():
+    '''
+    I used random integers instead of random ip addresses for testing so I could create multiple requests from the same integer
+    I did convert these integers into strings
+    '''
+    # Call requestHandled with random ip adresses ranging from 1 - 1 million, 10 million times
+    for _ in range(10000000):
+        ip = str(random.randint(1,1000000))
+        requestHandled(ip)
+    
+    # Call top100 to get the ip addresses with the most requests
+    top100()
+
+    # Clear out the dictionary and print to show it's cleared
+    print('clearing out dictionary')
+    clear()
+    print(ipAddresses)
+
+run()
