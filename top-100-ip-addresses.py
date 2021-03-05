@@ -13,8 +13,18 @@ def requestHandled(ipAddress):
     '''
     ipAddresses[ipAddress] += 1
 
-# function to return top 100 ip addresses by count, with highest traffic ip address first
-# def top100():
+def top100():
+    '''
+    Sort the ipAddresses dictionary by the value which is the number of times the ip address has been requested
+    Key in the sort is getting each value in the ipAddresses dictionary
+    Order the sorted dictionary in descending order with the largest value first
+    '''
+    for ipAddress in sorted(ipAddresses, key=ipAddresses.get, reverse=True)[:100]:
+        # For the first 100 ip addresses in the sorted dictionary, print the ipAddress along with the request count
+        print(ipAddress, ipAddresses[ipAddress])
 
-# clear ip addresses and count at the start of each day
-# def clear():
+def clear():
+    '''
+    Clear out the dictionary at the start of each day
+    '''
+    ipAddresses.clear()
